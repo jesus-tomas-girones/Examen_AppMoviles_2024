@@ -17,6 +17,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="1"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/button4"
@@ -32,6 +33,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="2"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/button"
@@ -47,6 +49,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="3"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/button4"
@@ -62,6 +65,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="onClick"
         android:text="4"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/button6"
@@ -77,6 +81,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:onClick="onClick"
         android:text="="
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/button7"
@@ -92,6 +97,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="onClick"
         android:text="+"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,6 +117,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button6" />
+        app:layout_constraintTop_toTopOf="@+id/button6"
+        android:onClick="onClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
