@@ -1,9 +1,13 @@
 package org.example.apellido;
 
-//Apartado a)
+//Ejercicio 4: JAVA  apartado a)
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Ventas {
     private String vendedor;
@@ -53,7 +57,7 @@ public class Ventas {
         this.importe = importe;
     }
 
-    //Apartado b)
+    //Ejercicio 4: JAVA    apartado b)
     public static List<Ventas> inicializa(List<String> vendedor, List<Integer> productos, List<Double> importe) {
         List<Ventas> ventas = new ArrayList<>();
         for (int i = 0; i < vendedor.size(); i++) {
@@ -61,7 +65,4 @@ public class Ventas {
         }
         return ventas;
     }
-
 }
-
-

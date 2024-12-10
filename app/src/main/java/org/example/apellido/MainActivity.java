@@ -8,7 +8,11 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,12 +33,47 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });*/
+
         //Ejercicio 4: JAVA
         listaVentas = Ventas.inicializa(VENDEDOR, PRODUCTOS, IMPORTE);
         Log.d("EXAMEN",  listaVentas.toString());
+
+        //Ejercicio 5: ALGORITMO 1
+        Set<String> vendedores = new HashSet<>();
+        for (Ventas venta : listaVentas) {
+            vendedores.add(venta.getVendedor());
+        }
+        Map<String,Integer> totalProductos = new HashMap<>();
+        for (String vendedor : vendedores) {
+            int total = 0;
+            for (Ventas venta : listaVentas) {
+                if (venta.getVendedor().equals(vendedor)) {
+                    total += venta.getProductos();
+                }
+            }
+            totalProductos.put(vendedor, total);
+        }
+        Log.d("EXAMEN",  "Ejercicio 5: " + totalProductos);
+
+        //Ejercicio 6: ALGORITMO 2
+        ejercicio6(listaVentas);
     }
 
-    //Al pulsar sobre cualquiera de los 7 botones, su texto se añadirá a la derecha del botón “=”.
+    /*Crea un método que tenga como parámetro la lista obtenida en el ejercicio anterior y nos devuelva el nombre del trabajador que consiguió vender en una jornada los productos con mayor valor medio. Muestra las soluciones en el LogCat usando el tag EXAMEN.*/
+    public void ejercicio6(List<Ventas> listaVentas) {
+        String vendedor = "";
+        double precioMedio = 0;
+        for (Ventas venta : listaVentas) {
+            if (venta.precioMedio() > precioMedio) {
+                precioMedio = venta.precioMedio();
+                vendedor = venta.getVendedor();
+            }
+        }
+        Log.d("EXAMEN", "Ejercicio 6: " + vendedor);
+    }
+
+
+    //Ejercicio 3: BOTONES
     public void onClick(View view) {
         Button botonPulsado = (Button) view;  //El botón que ha sido pulsado
         Button botonIgual = findViewById(R.id.button3); //El botón “=”
