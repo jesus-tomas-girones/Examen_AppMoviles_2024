@@ -17,9 +17,9 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     //Ejercicio 4: JAVA
-    static List<String>  VENDEDOR =Arrays.asList("Pepe", "Ana", "Ana","Pepe","Ana");
-    static List<Integer> PRODUCTOS=Arrays.asList(     6,     9,    10,     5,    3);
-    static List<Double> IMPORTE  = Arrays.asList(  60.0,  45.0,  60.6,  55.0, 30.0);
+    static List<String> VENDEDOR = Arrays.asList("Pepe", "Ana", "Ana", "Pepe", "Ana");
+    static List<Integer> PRODUCTOS = Arrays.asList(6, 9, 10, 5, 3);
+    static List<Double> IMPORTE = Arrays.asList(60.0, 45.0, 60.6, 55.0, 30.0);
 
     public static List<Ventas> listaVentas;
 
@@ -36,14 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
         //Ejercicio 4: JAVA
         listaVentas = Ventas.inicializa(VENDEDOR, PRODUCTOS, IMPORTE);
-        Log.d("EXAMEN",  listaVentas.toString());
+        Log.d("EXAMEN", listaVentas.toString());
 
         //Ejercicio 5: ALGORITMO 1
         Set<String> vendedores = new HashSet<>();
         for (Ventas venta : listaVentas) {
             vendedores.add(venta.getVendedor());
         }
-        Map<String,Integer> totalProductos = new HashMap<>();
+        Map<String, Integer> totalProductos = new HashMap<>();
         for (String vendedor : vendedores) {
             int total = 0;
             for (Ventas venta : listaVentas) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
             totalProductos.put(vendedor, total);
         }
-        Log.d("EXAMEN",  "Ejercicio 5: " + totalProductos);
+        Log.d("EXAMEN", "Ejercicio 5: " + totalProductos);
 
         //Ejercicio 6: ALGORITMO 2
         ejercicio6(listaVentas);
@@ -72,11 +72,26 @@ public class MainActivity extends AppCompatActivity {
         Log.d("EXAMEN", "Ejercicio 6: " + vendedor);
     }
 
-
     //Ejercicio 3: BOTONES
     public void onClick(View view) {
         Button botonPulsado = (Button) view;  //El botón que ha sido pulsado
         Button botonIgual = findViewById(R.id.button3); //El botón “=”
         botonIgual.setText(botonIgual.getText() + botonPulsado.getText().toString()); //Añadimos el texto del botón pulsado a la derecha del botón “=”
     }
+
+    //Ejercicio 7: GUARDAR ESTADO
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Button botonIgual = findViewById(R.id.button3);
+        outState.putString("texto", botonIgual.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Button botonIgual = findViewById(R.id.button3);
+        botonIgual.setText(savedInstanceState.getString("texto"));
+    }
+
 }
